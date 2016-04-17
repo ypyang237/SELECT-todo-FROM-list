@@ -11,3 +11,8 @@ CREATE TABLE tasks (
   updated_at timestamp,
   completed boolean NOT NULL
 );
+
+ALTER TABLE tasks DROP COLUMN completed;
+ALTER TABLE tasks ADD COLUMN completed_at timestamp NULL;
+ALTER TABLE tasks ALTER COLUMN updated_at SET NOT NULL;
+ALTER TABLE tasks ALTER COLUMN updated_at SET Default now();
